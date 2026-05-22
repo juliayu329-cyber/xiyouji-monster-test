@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测测你是西游记里哪个妖怪</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 开始页面 -->
+        <div id="start-page" class="page active">
+            <h1>测测你是西游记里哪个妖怪</h1>
+            <p class="subtitle">回答以下问题，发现你的妖怪本性</p>
+            <button class="btn-primary" onclick="startTest()">开始测试</button>
+        </div>
+
+        <!-- 测试页面 -->
+        <div id="test-page" class="page">
+            <div class="progress-bar">
+                <div id="progress" class="progress-fill"></div>
+            </div>
+            <div class="question-container">
+                <h2 id="question-text"></h2>
+                <div class="scale-container">
+                    <div class="scale-labels">
+                        <span id="scale-label-left">非常不同意</span>
+                        <span id="scale-label-right">非常同意</span>
+                    </div>
+                    <div id="scale-options" class="scale-options"></div>
+                </div>
+            </div>
+            <div class="navigation">
+                <button id="prev-btn" class="btn-secondary" onclick="prevQuestion()">上一题</button>
+                <span id="question-number"></span>
+                <button id="next-btn" class="btn-secondary" onclick="nextQuestion()">下一题</button>
+            </div>
+        </div>
+
+        <!-- 结果页面 -->
+        <div id="result-page" class="page">
+            <h1>你的测试结果</h1>
+            <div class="result-container">
+                <div id="monster-image" class="monster-image"></div>
+                <h2 id="monster-name"></h2>
+                <p id="monster-desc" class="monster-desc"></p>
+                <div id="monster-traits" class="traits"></div>
+            </div>
+            <button class="btn-primary" onclick="restartTest()">重新测试</button>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

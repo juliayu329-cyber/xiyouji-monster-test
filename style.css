@@ -73,7 +73,7 @@ h1 {
 }
 
 h1::before, h1::after {
-    content: '※';
+    content: '\203B';
     color: #8b6f47;
     margin: 0 0.5em;
     font-size: 0.6em;
@@ -256,7 +256,7 @@ h1::before, h1::after {
 }
 
 #monster-name::before, #monster-name::after {
-    content: '·';
+    content: '\B7';
     color: #8b6f47;
     margin: 0 0.4em;
 }

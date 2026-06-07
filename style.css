@@ -5,31 +5,54 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: "Songti SC", "STSong", "SimSun", "瀹嬩綋", "PingFang SC", serif;
+    background-color: #ede4d3;
+    background-image:
+        radial-gradient(ellipse at 20% 30%, rgba(60, 50, 40, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(60, 50, 40, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 90%, rgba(60, 50, 40, 0.05) 0%, transparent 60%);
+    color: #2c2418;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(80, 60, 40, 0.015) 2px, rgba(80, 60, 40, 0.015) 3px);
+    pointer-events: none;
+    z-index: 1;
 }
 
 .container {
     max-width: 800px;
     width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
 .page {
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    background: rgba(248, 242, 230, 0.92);
+    border: 1px solid #8b6f47;
+    border-radius: 4px;
+    padding: 50px 45px;
+    box-shadow:
+        0 0 0 4px rgba(248, 242, 230, 0.92),
+        0 0 0 5px #8b6f47,
+        0 20px 50px rgba(60, 40, 20, 0.25);
     display: none;
+    position: relative;
 }
 
 .page.active {
     display: block;
-    animation: fadeIn 0.5s ease-in;
+    animation: fadeIn 0.6s ease-in;
 }
 
 @keyframes fadeIn {
@@ -38,66 +61,91 @@ body {
 }
 
 h1 {
-    color: #333;
+    color: #2c2418;
     text-align: center;
     margin-bottom: 20px;
     font-size: 2.5em;
+    font-weight: normal;
+    letter-spacing: 0.15em;
+    text-shadow: 1px 1px 0 rgba(139, 111, 71, 0.2);
+}
+
+h1::before, h1::after {
+    content: '鈥�';
+    color: #8b6f47;
+    margin: 0 0.5em;
+    font-size: 0.6em;
+    vertical-align: middle;
+    opacity: 0.6;
 }
 
 .subtitle {
     text-align: center;
-    color: #666;
+    color: #5c4a32;
     margin-bottom: 40px;
     font-size: 1.1em;
+    letter-spacing: 0.1em;
+    font-style: italic;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    padding: 15px 40px;
+    background: #2c2418;
+    color: #ede4d3;
+    border: 1px solid #2c2418;
+    padding: 14px 50px;
     font-size: 1.1em;
-    border-radius: 50px;
+    font-family: inherit;
+    letter-spacing: 0.3em;
+    border-radius: 2px;
     cursor: pointer;
     display: block;
     margin: 0 auto;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(60, 40, 20, 0.2);
 }
 
 .btn-primary:hover {
+    background: #5c4a32;
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(60, 40, 20, 0.3);
 }
 
 .btn-secondary {
-    background: white;
-    color: #667eea;
-    border: 2px solid #667eea;
-    padding: 10px 25px;
-    font-size: 1em;
-    border-radius: 25px;
+    background: transparent;
+    color: #5c4a32;
+    border: 1px solid #8b6f47;
+    padding: 10px 28px;
+    font-size: 0.95em;
+    font-family: inherit;
+    letter-spacing: 0.2em;
+    border-radius: 2px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.3s;
 }
 
 .btn-secondary:hover {
-    background: #667eea;
-    color: white;
+    background: #2c2418;
+    color: #ede4d3;
+    border-color: #2c2418;
+}
+
+.btn-secondary:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
 }
 
 .progress-bar {
     width: 100%;
-    height: 8px;
-    background: #e0e0e0;
-    border-radius: 10px;
-    margin-bottom: 30px;
+    height: 2px;
+    background: rgba(139, 111, 71, 0.2);
+    margin-bottom: 35px;
     overflow: hidden;
 }
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-    transition: width 0.3s ease;
+    background: #2c2418;
+    transition: width 0.4s ease;
     width: 0%;
 }
 
@@ -106,72 +154,71 @@ h1 {
 }
 
 #question-text {
-    color: #333;
-    font-size: 1.5em;
-    margin-bottom: 30px;
+    color: #2c2418;
+    font-size: 1.4em;
+    margin-bottom: 35px;
     text-align: center;
-}
-
-.options {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
 }
 
 .scale-container {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .scale-labels {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 12px;
-    color: #888;
-    font-size: 0.85em;
+    margin-bottom: 16px;
+    color: #8b6f47;
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
 }
 
 .scale-options {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 14px;
 }
 
 .scale-btn {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    border: 2px solid #e0e0e0;
-    background: white;
+    border: 1px solid #8b6f47;
+    background: rgba(248, 242, 230, 0.6);
     font-size: 1em;
-    font-weight: bold;
-    color: #666;
+    font-family: inherit;
+    color: #5c4a32;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.3s;
 }
 
 .scale-btn:hover {
-    border-color: #667eea;
-    background: #f5f7ff;
-    color: #667eea;
+    border-color: #2c2418;
+    background: rgba(139, 111, 71, 0.15);
+    color: #2c2418;
 }
 
 .scale-btn.selected {
-    border-color: #667eea;
-    background: #667eea;
-    color: white;
-    transform: scale(1.1);
+    border-color: #2c2418;
+    background: #2c2418;
+    color: #ede4d3;
+    transform: scale(1.15);
+    box-shadow: 0 4px 10px rgba(60, 40, 20, 0.3);
 }
 
 .navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 35px;
 }
 
 #question-number {
-    color: #666;
-    font-size: 0.9em;
+    color: #8b6f47;
+    font-size: 0.95em;
+    letter-spacing: 0.15em;
 }
 
 .result-container {
@@ -179,60 +226,78 @@ h1 {
 }
 
 .monster-image {
-    width: 180px;
-    height: 260px;
+    width: 200px;
+    height: 280px;
     margin: 0 auto 30px;
-    border-radius: 12px;
+    border: 1px solid #8b6f47;
+    padding: 8px;
+    background: rgba(248, 242, 230, 0.5);
+    box-shadow:
+        0 0 0 1px #8b6f47,
+        0 10px 30px rgba(60, 40, 20, 0.25);
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .monster-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: sepia(15%) contrast(1.05);
 }
 
 #monster-name {
-    color: #333;
-    font-size: 2em;
-    margin-bottom: 20px;
+    color: #2c2418;
+    font-size: 2.2em;
+    font-weight: normal;
+    margin-bottom: 25px;
+    letter-spacing: 0.2em;
+}
+
+#monster-name::before, #monster-name::after {
+    content: '路';
+    color: #8b6f47;
+    margin: 0 0.4em;
 }
 
 .monster-desc {
-    color: #666;
+    color: #3d3220;
     font-size: 1.1em;
-    line-height: 1.8;
+    line-height: 2;
     margin-bottom: 30px;
+    letter-spacing: 0.05em;
+    white-space: pre-line;
+    padding: 0 20px;
 }
 
 .traits {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .trait {
-    background: #f5f7ff;
-    color: #667eea;
-    padding: 8px 16px;
-    border-radius: 20px;
+    background: transparent;
+    color: #5c4a32;
+    border: 1px solid #8b6f47;
+    padding: 6px 18px;
+    border-radius: 2px;
     font-size: 0.9em;
+    letter-spacing: 0.1em;
 }
 
 @media (max-width: 600px) {
     .page {
-        padding: 30px 20px;
+        padding: 35px 25px;
     }
 
     h1 {
-        font-size: 1.8em;
+        font-size: 1.6em;
     }
 
     #question-text {
-        font-size: 1.2em;
+        font-size: 1.15em;
     }
 
     .scale-btn {
@@ -242,6 +307,15 @@ h1 {
     }
 
     .scale-options {
-        gap: 6px;
+        gap: 8px;
+    }
+
+    .monster-image {
+        width: 170px;
+        height: 240px;
+    }
+
+    #monster-name {
+        font-size: 1.7em;
     }
 }

@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +7,7 @@
 }
 
 body {
-    font-family: "Songti SC", "STSong", "SimSun", "瀹嬩綋", "PingFang SC", serif;
+    font-family: "Songti SC", "STSong", "SimSun", "宋体", "PingFang SC", serif;
     background-color: #ede4d3;
     background-image:
         radial-gradient(ellipse at 20% 30%, rgba(60, 50, 40, 0.08) 0%, transparent 50%),
@@ -71,7 +73,7 @@ h1 {
 }
 
 h1::before, h1::after {
-    content: '鈥�';
+    content: '※';
     color: #8b6f47;
     margin: 0 0.5em;
     font-size: 0.6em;
@@ -254,7 +256,7 @@ h1::before, h1::after {
 }
 
 #monster-name::before, #monster-name::after {
-    content: '路';
+    content: '·';
     color: #8b6f47;
     margin: 0 0.4em;
 }
